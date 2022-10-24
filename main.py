@@ -33,11 +33,11 @@ class GridLayoutExample(StackLayout):
         self.add_widget(stop_button)
 
     def play_music1_sound(self, dt):
-        self.sound = SoundLoader.load("music1.wav")
+        self.sound = SoundLoader.load(os.path.join(os.getenv('EXTERNAL_STORAGE'), 'Music/music1.wav'))
         self.sound.play()
     
     def play_gms_sound(self, dt):
-        self.sound = SoundLoader.load("gms.mp3")
+        self.sound = SoundLoader.load('/storage/emulated/0/Download/Music/galaxy.wav')
         self.sound.play()
         
     def stop_sound(self, dt):
