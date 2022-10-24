@@ -1,0 +1,16 @@
+GridLayoutExample:
+
+<GridLayoutExample>:
+    size_hint:1,1
+    pos_hint: {"center_x":0.5, "top":1}
+    Label:
+        text: "Volume"
+        size_hint: 0.1,0.05
+    Slider:
+        id: my_slider
+        min: 0
+        max: 100
+        #value: root.parent.music_volume
+        #on_value: root.parent.on_slider_value(self)
+        size_hint: 0.4,0.05
+    
