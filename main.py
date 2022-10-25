@@ -17,6 +17,11 @@ class GridLayoutExample(StackLayout):
     def __init__(self, **kwargs):
         super(GridLayoutExample, self).__init__(**kwargs)
 
+        if(platform == "android"):
+            from android.permissions import request_permissions, Permission
+            request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
+            #self.dir_to_search = os.path.join(os.getenv('EXTERNAL_STORAGE'), 'Music')
+
         #   Create Buttons
         play_music1_button = Button(text="music1", size_hint=(None,None), size=(dp(100),dp(120)))
         play_gms_button = Button(text="GMS", size_hint=(None,None), size=(dp(100),dp(120)))
@@ -39,6 +44,7 @@ class GridLayoutExample(StackLayout):
     def play_gms_sound(self, dt):
         self.sound = SoundLoader.load('/storage/emulated/0/Download/Music/galaxy.wav')
         self.sound.play()
+        
         
     def stop_sound(self, dt):
         self.sound.stop()
