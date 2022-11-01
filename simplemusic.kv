@@ -1,16 +1,48 @@
-GridLayoutExample:
+<MenuContent>:
+    ScrollView:
+        MDList:
+            OneLineListItem:
+                text: "List Songs"
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.ids.sideMenuOptions.ids.screen_manager.current = "list_songs"
+            OneLineListItem:
+                text: "Playlist"
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.ids.sideMenuOptions.ids.screen_manager.current = "playlist"
 
-<GridLayoutExample>:
-    size_hint:1,1
-    pos_hint: {"center_x":0.5, "top":1}
-    Label:
-        text: "Volume"
-        size_hint: 0.1,0.05
-    Slider:
-        id: my_slider
+<Demo>:
+   
+<MusicPlayer>:
+    Demo:
+
+<PlaylistItems>:
+    max_height: 75
+    #width: self.minimum_width
+    size_hint_y: None
+    height: self.minimum_height
+    cols:3
+    padding:10,10
+    spacing:10,10
+    row_default_height:30
+
+    MDRaisedButton:
+        id: playlist_Button
+        text: self.parent.buttonText
+        #pos_hint: {"center_x":0}
+        size_hint:(0.1,0.1)
+
+    MDProgressBar:
+        id: playlist_progressBar
         min: 0
         max: 100
-        #value: root.parent.music_volume
-        #on_value: root.parent.on_slider_value(self)
-        size_hint: 0.4,0.05
+        value: self.parent.progressBarValue
+        size_hint:(0.5,0.1)
+        #pos_hint: {"center_x":0.2, "top":1}
     
+    MDLabel:
+        id: song_Time_Label
+        text:self.parent.songTimeLabel
+        #pos_hint: {"center_x":0.5, "center_y":0.5}
+        size_hint:(0.2,0.1)
