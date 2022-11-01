@@ -32,7 +32,7 @@ source.include_exts =
 version = 1.0
 
 # (list) Application requirements
-requirements = python3,kivy==2.1.0, kivymd==1.0
+requirements = python3,kivy,kivymd,pillow
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
